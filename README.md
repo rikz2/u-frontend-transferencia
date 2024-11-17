@@ -1,3 +1,28 @@
+# Proyecto Angular - Aplicación de Gestión de Contactos
+
+Este es un proyecto desarrollado en Angular para gestionar contactos con funcionalidades de **CRUD** (Crear, Leer, Actualizar, Eliminar). Incluye un sistema de notificaciones personalizado para informar sobre las acciones realizadas.
+
+## Requisitos Previos
+
+Asegúrate de tener instaladas las siguientes herramientas antes de clonar el proyecto:
+
+- **Node.js** (v14 o superior): [Descargar Node.js](https://nodejs.org/)
+- **Angular CLI** (v14 o superior): Instálalo globalmente con:
+  ```bash
+  npm install -g @angular/cli
+
+
+## Pasos para Ejecutar el Proyecto
+
+git clone https://github.com/tu-usuario/tu-repositorio.git
+
+cd tu-repositorio
+
+npm install
+
+ng serve
+
+
 # TransferenciaApp
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.0.

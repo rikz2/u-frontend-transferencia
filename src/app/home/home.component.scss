@@ -1,25 +1,22 @@
+@import '../../styles/_variables.scss';
 .home {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     justify-content: center;
-    height: calc(100vh - 80px); // Ajustar al espacio restante del menú
-    text-align: center;
-  
-    h1 {
-      font-size: 3rem;
-      font-weight: bold;
-      color: #2d2f33; // Texto moderno oscuro
+    overflow: hidden;
+    &::after{
+      content: "";
+      top: 0px;
+      right: -100px;
+      height: 500px;
+      width: 500px;
+      position: absolute;
+      background:  $primary-gradient;
+      opacity: 0.9;
+      border-radius: 50%;
+      filter: blur(200px);
+      z-index: -1;
     }
-  
-    p {
-      font-size: 1.5rem;
-      color: #555555; // Texto gris suave
-      margin: 1rem 0;
-    }
-  
     a {
-      background-color: #4caf50;
+      background-color: $primary-gradient;
       color: #ffffff;
       padding: 0.8rem 1.5rem;
       text-decoration: none;
@@ -29,8 +26,8 @@
       transition: all 0.3s ease;
   
       &:hover {
-        background-color: #43a047; // Verde más oscuro
+        background-color:$primary-gradient; 
       }
     }
-  }
+}
   

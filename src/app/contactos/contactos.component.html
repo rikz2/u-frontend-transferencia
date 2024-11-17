@@ -1,40 +1,68 @@
 <div class="container mt-4">
   <h1 class="text-center mb-4">Lista de Contactos</h1>
+
   <!-- Formulario para agregar contacto -->
   <h2 class="text-center mt-5">Agregar Contacto</h2>
   <div class="py-5">
     <div class="row justify-content-center">
       <div class="col-md-6">
-        <form (ngSubmit)="agregarContacto()" class="glass-box rounded-5 p-4 row g-3 justify-content-center mt-3">
-          <div class="">
+        <form 
+          (ngSubmit)="agregarContacto()" 
+          class="glass-box rounded-5 p-4 row g-3 justify-content-center mt-3"
+          #agregarForm="ngForm"
+        >
+          <!-- Campo Nombre -->
+          <div>
             <input 
               [(ngModel)]="nuevoContacto.nombre" 
               name="nombre" 
               class="form-control" 
               placeholder="Nombre" 
-              required
+              required 
+              #nombre="ngModel"
             />
+            <div class="text-danger" *ngIf="nombre.invalid && nombre.touched">
+              El nombre es obligatorio.
+            </div>
           </div>
-          <div class="">
+
+          <!-- Campo Email -->
+          <div>
             <input 
               [(ngModel)]="nuevoContacto.email" 
               name="email" 
               class="form-control" 
               placeholder="Email" 
-              required
+              email
+              #email="ngModel"
             />
+            <div class="text-danger" *ngIf="email.invalid && email.touched">
+              Debe ser un correo válido.
+            </div>
           </div>
-          <div class="">
+
+          <!-- Campo Teléfono -->
+          <div>
             <input 
               [(ngModel)]="nuevoContacto.telefono" 
               name="telefono" 
               class="form-control" 
               placeholder="Teléfono" 
-              required
+              required 
+              #telefono="ngModel"
             />
+            <div class="text-danger" *ngIf="telefono.invalid && telefono.touched">
+              El teléfono es obligatorio.
+            </div>
           </div>
-          <div class="">
-            <button type="submit" class="btn btn-success w-100">
+
+          <!-- Botón Agregar -->
+          <div>
+            <button 
+              type="submit" 
+              class="btn btn-success w-100" 
+              [disabled]="agregarForm.invalid"
+            >
               Agregar
             </button>
           </div>
@@ -48,40 +76,45 @@
     <div class="col-12 col-md-6 col-lg-4" *ngFor="let contacto of contactos">
       <div class="card shadow-sm">
         <div class="card-body">
-          <!-- Nombre -->
+          <!-- Bloque Nombre -->
           <h5 class="card-title">
             <span *ngIf="!contacto.enEdicion">{{ contacto.nombre }}</span>
             <input 
               *ngIf="contacto.enEdicion" 
               [(ngModel)]="contacto.nombre" 
               class="form-control mb-2"
+              placeholder="Nombre"
+              required
             />
           </h5>
 
-          <!-- Email -->
-          <p class="card-text">
+          <!-- Bloque Email -->
+          <div class="card-text">
             <span *ngIf="!contacto.enEdicion">{{ contacto.email }}</span>
             <input 
               *ngIf="contacto.enEdicion" 
               [(ngModel)]="contacto.email" 
               class="form-control mb-2"
+              placeholder="Email"
             />
-          </p>
+          </div>
 
-          <!-- Teléfono -->
-          <p class="card-text">
+          <!-- Bloque Teléfono -->
+          <div class="card-text">
             <span *ngIf="!contacto.enEdicion">{{ contacto.telefono }}</span>
             <input 
               *ngIf="contacto.enEdicion" 
               [(ngModel)]="contacto.telefono" 
               class="form-control mb-2"
+              placeholder="Teléfono"
+              required
             />
-          </p>
+          </div>
 
           <!-- Botones -->
           <div class="d-flex justify-content-between">
             <button 
-              class="btn btn-primary" 
+              class="btn btn-warning fw-bold" 
               *ngIf="!contacto.enEdicion" 
               (click)="editarContacto(contacto)"
             >
@@ -90,12 +123,13 @@
             <button 
               class="btn btn-success" 
               *ngIf="contacto.enEdicion" 
-              (click)="guardarEdicion(contacto)"
+              (click)="guardarEdicion(contacto)" 
+              [disabled]="!contacto.nombre || !contacto.telefono"
             >
               Guardar
             </button>
             <button 
-              class="btn btn-danger" 
+              class="btn btn-danger fw-bold" 
               (click)="eliminarContacto(contacto.id)"
             >
               Eliminar
@@ -105,6 +139,4 @@
       </div>
     </div>
   </div>
-
-  
 </div>

@@ -1,3 +1,5 @@
+@import '../../styles/_variables.scss';
+
 nav {
   background-color: #2d2f33; // Fondo oscuro moderno
   padding: 1rem;
@@ -20,13 +22,13 @@ nav {
         transition: all 0.3s ease;
 
         &:hover {
-          background-color: #4caf50; // Efecto hover verde
+          background: $primary-gradient; // Efecto hover verde
           color: #ffffff;
           border-radius: 5px;
         }
 
         &.active {
-          background-color: #4caf50;
+          background: $primary-gradient;
           color: #ffffff;
           border-radius: 5px;
         }

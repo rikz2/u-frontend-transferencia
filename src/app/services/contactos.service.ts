@@ -8,6 +8,7 @@ export class ContactosService {
   private contactos: Contacto[] = [
     { id: 1, nombre: 'Juan Pérez', email: 'juan@example.com', telefono: '123456789' },
     { id: 2, nombre: 'Ana Gómez', email: 'ana@example.com', telefono: '987654321' },
+    { id: 3, nombre: 'Luis Fernández', email: 'luis@example.com', telefono: '555123456' },
   ];
 
   getContactos(): Contacto[] {

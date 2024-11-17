@@ -5,14 +5,16 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { ContactosComponent } from './contactos/contactos.component';
 import { FormsModule } from '@angular/forms';
-import { MenuComponent } from './menu/menu.component'; // Importar FormsModule
+import { MenuComponent } from './menu/menu.component';
+import { ToastComponent } from './toast/toast.component'; // Importar FormsModule
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     ContactosComponent,
-    MenuComponent
+    MenuComponent,
+    ToastComponent
   ],
   imports: [
     BrowserModule,

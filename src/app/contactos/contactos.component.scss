@@ -2,6 +2,19 @@
 
 .container {
   max-width: 1200px;
+  &::after{
+    content: "";
+    top: 0px;
+    right: -100px;
+    height: 500px;
+    width: 500px;
+    position: absolute;
+    background:  $primary-gradient;
+    opacity: 0.9;
+    border-radius: 50%;
+    filter: blur(200px);
+    z-index: -1;
+  }
 }
 
 .card {
@@ -21,28 +34,14 @@
     box-shadow: none;
     border-bottom: 2px solid #ccc;
     transition: border-color 0.3s;
-
-    &:focus {
-      outline: none;
-      border-color: #4caf50;
-    }
   }
 
   .btn-primary {
-    background-color: #4caf50;
+    background:$primary-gradient;
     border: none;
 
     &:hover {
-      background-color: #43a047;
-    }
-  }
-
-  .btn-danger {
-    background-color: #f44336;
-    border: none;
-
-    &:hover {
-      background-color: #d32f2f;
+      background:$primary-gradient;
     }
   }
 }
@@ -53,7 +52,7 @@ form {
     border: 1px solid #ccc;
 
     &:focus {
-      border-color: #4caf50;
+      border: 1px solid rgba(0, 183, 255,0.5);
       box-shadow: none;
     }
   }

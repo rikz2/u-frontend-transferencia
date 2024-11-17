@@ -16,7 +16,7 @@ Asegúrate de tener instaladas las siguientes herramientas antes de clonar el pr
 
 git clone https://github.com/tu-usuario/tu-repositorio.git
 
-cd tu-repositorio
+cd transferenciaApp
 
 npm install
 

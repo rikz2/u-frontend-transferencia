@@ -1,1 +1,25 @@
 /* You can add global styles to this file, and also import other style files */
+// Tipografía y colores globales
+@import './styles/_variables.scss';
+@import './styles/_mixins.scss';
+
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    // background-color: #181b20; // Fondo gris claro
+    // color: #333333; // Texto oscuro moderno
+  }
+  
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+  }
+  
+.glass-box{
+  background-color: rgba(255, 255, 255, 0.08);
+}

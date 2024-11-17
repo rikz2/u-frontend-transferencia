@@ -1,0 +1,36 @@
+nav {
+  background-color: #2d2f33; // Fondo oscuro moderno
+  padding: 1rem;
+
+  ul {
+    list-style-type: none;
+    display: flex;
+    gap: 2rem;
+    margin: 0;
+    padding: 0;
+    justify-content: center;
+
+    li {
+      a {
+        color: #ffffff; // Texto blanco
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 1.1rem;
+        padding: 0.5rem 1rem;
+        transition: all 0.3s ease;
+
+        &:hover {
+          background-color: #4caf50; // Efecto hover verde
+          color: #ffffff;
+          border-radius: 5px;
+        }
+
+        &.active {
+          background-color: #4caf50;
+          color: #ffffff;
+          border-radius: 5px;
+        }
+      }
+    }
+  }
+}

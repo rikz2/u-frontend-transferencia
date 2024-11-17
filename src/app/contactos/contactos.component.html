@@ -1,0 +1,110 @@
+<div class="container mt-4">
+  <h1 class="text-center mb-4">Lista de Contactos</h1>
+  <!-- Formulario para agregar contacto -->
+  <h2 class="text-center mt-5">Agregar Contacto</h2>
+  <div class="py-5">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <form (ngSubmit)="agregarContacto()" class="glass-box rounded-5 p-4 row g-3 justify-content-center mt-3">
+          <div class="">
+            <input 
+              [(ngModel)]="nuevoContacto.nombre" 
+              name="nombre" 
+              class="form-control" 
+              placeholder="Nombre" 
+              required
+            />
+          </div>
+          <div class="">
+            <input 
+              [(ngModel)]="nuevoContacto.email" 
+              name="email" 
+              class="form-control" 
+              placeholder="Email" 
+              required
+            />
+          </div>
+          <div class="">
+            <input 
+              [(ngModel)]="nuevoContacto.telefono" 
+              name="telefono" 
+              class="form-control" 
+              placeholder="Teléfono" 
+              required
+            />
+          </div>
+          <div class="">
+            <button type="submit" class="btn btn-success w-100">
+              Agregar
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Listado de contactos -->
+  <div class="row g-3">
+    <div class="col-12 col-md-6 col-lg-4" *ngFor="let contacto of contactos">
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <!-- Nombre -->
+          <h5 class="card-title">
+            <span *ngIf="!contacto.enEdicion">{{ contacto.nombre }}</span>
+            <input 
+              *ngIf="contacto.enEdicion" 
+              [(ngModel)]="contacto.nombre" 
+              class="form-control mb-2"
+            />
+          </h5>
+
+          <!-- Email -->
+          <p class="card-text">
+            <span *ngIf="!contacto.enEdicion">{{ contacto.email }}</span>
+            <input 
+              *ngIf="contacto.enEdicion" 
+              [(ngModel)]="contacto.email" 
+              class="form-control mb-2"
+            />
+          </p>
+
+          <!-- Teléfono -->
+          <p class="card-text">
+            <span *ngIf="!contacto.enEdicion">{{ contacto.telefono }}</span>
+            <input 
+              *ngIf="contacto.enEdicion" 
+              [(ngModel)]="contacto.telefono" 
+              class="form-control mb-2"
+            />
+          </p>
+
+          <!-- Botones -->
+          <div class="d-flex justify-content-between">
+            <button 
+              class="btn btn-primary" 
+              *ngIf="!contacto.enEdicion" 
+              (click)="editarContacto(contacto)"
+            >
+              Editar
+            </button>
+            <button 
+              class="btn btn-success" 
+              *ngIf="contacto.enEdicion" 
+              (click)="guardarEdicion(contacto)"
+            >
+              Guardar
+            </button>
+            <button 
+              class="btn btn-danger" 
+              (click)="eliminarContacto(contacto.id)"
+            >
+              Eliminar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+</div>
